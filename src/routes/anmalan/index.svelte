@@ -8,6 +8,12 @@
 </div>
 
 <style>
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		background-color: #eee;
+	}
+
 	.container {
 		display: flex;
 		justify-content: center;
