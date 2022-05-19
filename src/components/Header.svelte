@@ -8,8 +8,9 @@
 	<header>
 		<div class="logo"><Logo /></div>
 		<Nav>
-			<NavItem title="Hem" href="/" active={true} />
-			<NavItem title="På Gång" href="/" active={false} />
+			<NavItem title="Hem" href="https://korskyrkangotene.se/" active={true} />
+			<NavItem title="Loppet" href="/" active={false} />
+			<NavItem title="Anmälan" href="/anmalan" active={false} />
 		</Nav>
 	</header>
 </div>
