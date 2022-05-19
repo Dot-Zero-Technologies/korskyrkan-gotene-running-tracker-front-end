@@ -14,8 +14,8 @@
 
 <style>
 	input {
-		font-size: 1.2rem;
-		padding: 0.5rem;
+		font-size: 1rem;
+		padding: 0.5rem 0.8rem;
 		border: 1px solid #ccc;
 		border-radius: 0.2rem;
 		margin-bottom: 0.5rem;
