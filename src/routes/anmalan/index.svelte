@@ -6,7 +6,12 @@
 <!-- Main -->
 <div class="container">
 	<main>
-		<InputContainer label="Namn" id="name" value="" />
+		<InputContainer type="text" label="Namn" id="name" value="" />
+		<InputContainer type="tel" label="Telefonnummer" id="phone" value="" />
+
+		<InputContainer type="text" label="Namn" id="sponsorName" value="" />
+		<InputContainer type="tel" label="Telefonnummer" id="sponsorPhone" value="" />
+		<InputContainer type="number" label="Summa" id="sponsorAmount" value="" />
 	</main>
 </div>
 
