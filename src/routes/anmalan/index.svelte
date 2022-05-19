@@ -1,10 +1,13 @@
 <script lang="ts">
+	import InputContainer from '../../components/InputContainer.svelte';
 </script>
 
 <!-- Header -->
 <!-- Main -->
 <div class="container">
-	<main>This is a test</main>
+	<main>
+		<InputContainer label="Namn" id="name" value="" />
+	</main>
 </div>
 
 <style>
