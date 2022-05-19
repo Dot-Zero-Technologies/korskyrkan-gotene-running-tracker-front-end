@@ -2,9 +2,12 @@
 	import Indent from '../../components/Indent.svelte'
 	import InputContainer from '../../components/InputContainer.svelte'
 	import Button from '../../components/Button.svelte'
+	import Header from '../../components/Header.svelte'
 </script>
 
 <!-- Header -->
+<Header />
+
 <!-- Main -->
 <div class="container">
 	<main>
