@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Indent from '../../components/Indent.svelte';
 	import InputContainer from '../../components/InputContainer.svelte';
 </script>
 
@@ -7,19 +8,23 @@
 <div class="container">
 	<main>
 		<h3>Löpare</h3>
-		<InputContainer type="text" label="Namn" id="name" value="" />
-		<InputContainer type="tel" label="Telefonnummer" id="phone" value="" />
+		<Indent>
+			<InputContainer type="text" label="Namn" id="name" value="" />
+			<InputContainer type="tel" label="Telefonnummer" id="phone" value="" />
+		</Indent>
 
 		<h3>Sponsor</h3>
-		<InputContainer type="text" label="Namn" id="sponsorName" value="" />
-		<InputContainer type="tel" label="Telefonnummer" id="sponsorPhone" value="" />
-		<InputContainer
-			type="number"
-			label="Sponsrad summa (kr)"
-			id="sponsorAmount"
-			value=""
-			info="Summa (i kr) som sponsras per varv som löparen springer."
-		/>
+		<Indent>
+			<InputContainer type="text" label="Namn" id="sponsorName" value="" />
+			<InputContainer type="tel" label="Telefonnummer" id="sponsorPhone" value="" />
+			<InputContainer
+				type="number"
+				label="Sponsrad summa (kr)"
+				id="sponsorAmount"
+				value=""
+				info="Summa (i kr) som sponsras per varv som löparen springer."
+			/>
+		</Indent>
 	</main>
 </div>
 
