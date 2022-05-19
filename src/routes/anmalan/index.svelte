@@ -1,10 +1,34 @@
 <script lang="ts">
+	import Indent from '../../components/Indent.svelte'
+	import InputContainer from '../../components/InputContainer.svelte'
+	import Button from '../../components/Button.svelte'
 </script>
 
 <!-- Header -->
 <!-- Main -->
 <div class="container">
-	<main>This is a test</main>
+	<main>
+		<h3>Löpare</h3>
+		<Indent>
+			<InputContainer type="text" label="Namn" id="name" value="" />
+			<InputContainer type="tel" label="Telefonnummer" id="phone" value="" />
+		</Indent>
+
+		<h3>Sponsor</h3>
+		<Indent>
+			<InputContainer type="text" label="Namn" id="sponsorName" value="" />
+			<InputContainer type="tel" label="Telefonnummer" id="sponsorPhone" value="" />
+			<InputContainer
+				type="number"
+				label="Sponsrad summa (kr)"
+				id="sponsorAmount"
+				value=""
+				info="Summa (i kr) som sponsras per varv som löparen springer."
+			/>
+
+			<Button text="Skicka anmälan" />
+		</Indent>
+	</main>
 </div>
 
 <style>
@@ -23,5 +47,6 @@
 
 	main {
 		padding: 1rem;
+		max-width: 20rem;
 	}
 </style>
