@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Indent from '../../components/Indent.svelte';
-	import InputContainer from '../../components/InputContainer.svelte';
+	import Indent from '../../components/Indent.svelte'
+	import InputContainer from '../../components/InputContainer.svelte'
+	import Button from '../../components/Button.svelte'
 </script>
 
 <!-- Header -->
@@ -24,6 +25,8 @@
 				value=""
 				info="Summa (i kr) som sponsras per varv som löparen springer."
 			/>
+
+			<Button text="Skicka anmälan" />
 		</Indent>
 	</main>
 </div>
