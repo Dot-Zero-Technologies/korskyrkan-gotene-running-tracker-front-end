@@ -27,14 +27,21 @@
 		box-sizing: border-box;
 	}
 
-	.container.active::after {
+	.container::after {
 		content: '';
 		display: block;
 		position: absolute;
 		bottom: 0;
-		left: 0;
-		width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0%;
 		height: 4px;
 		background-color: #4db2ec;
+		transition: 0.2s width ease;
+	}
+
+	.container.active::after,
+	.container:hover::after {
+		width: 100%;
 	}
 </style>
