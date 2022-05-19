@@ -35,7 +35,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 0%;
-		height: 4px;
+		height: 3px;
 		background-color: #4db2ec;
 		transition: 0.2s width ease;
 	}
