@@ -13,8 +13,8 @@
 	let sponsorAmount: number = 0
 
 	// Handle submit click.
-	const submitClick = () => {
-		const success = sendRegistration(
+	const submitClick = async () => {
+		const success = await sendRegistration(
 			runnerName,
 			runnerPhone,
 			sponsorName,
