@@ -3,15 +3,25 @@
 	import InputContainer from '../../components/InputContainer.svelte'
 	import Button from '../../components/Button.svelte'
 	import Header from '../../components/Header.svelte'
+	import sendRegistration from '../../lib/sendRegistration.js'
 
+	// Bind all form input values.
 	let runnerName: string = ''
 	let runnerPhone: string = ''
 	let sponsorName: string = ''
 	let sponsorPhone: string = ''
 	let sponsorAmount: number = 0
 
-	const sendRegistration = () => {
-		console.log(runnerName, runnerPhone, sponsorName, sponsorPhone, sponsorAmount)
+	// Handle submit click.
+	const submitClick = () => {
+		const success = sendRegistration(
+			runnerName,
+			runnerPhone,
+			sponsorName,
+			sponsorPhone,
+			sponsorAmount
+		)
+		console.log('Success:', success)
 	}
 </script>
 
@@ -44,7 +54,7 @@
 				info="Summa (i kr) som sponsras per varv som löparen springer."
 			/>
 
-			<Button text="Skicka anmälan" on:click={sendRegistration} />
+			<Button text="Skicka anmälan" on:click={submitClick} />
 		</Indent>
 	</main>
 </div>
