@@ -12,16 +12,38 @@
 	let sponsorPhone: string = ''
 	let sponsorAmount: number = 0
 
+	// Disable all form inputs.
+	let disableAllInput: boolean = false
+	$: console.log(disableAllInput)
+
 	// Handle submit click.
 	const submitClick = async () => {
-		const success = await sendRegistration(
+		// Disable all inputs.
+		disableAllInput = true
+
+		// Send registration request.
+		const status = await sendRegistration(
 			runnerName,
 			runnerPhone,
 			sponsorName,
 			sponsorPhone,
 			sponsorAmount
 		)
-		console.log('Success:', success)
+
+		// Check if registration was successful.
+		if (status.status === 200) {
+			// Display success message.
+			console.info('Registration successful!')
+		}
+
+		// Check if registration was unsuccessful.
+		if (status.status !== 200) {
+			// Enable all inputs.
+			disableAllInput = false
+
+			// Display error message.
+			console.error('Registration unsuccessful!\n' + status.statusText)
+		}
 	}
 </script>
 
@@ -33,23 +55,43 @@
 	<main>
 		<h3>Löpare</h3>
 		<Indent>
-			<InputContainer type="text" label="Namn" id="name" bind:value={runnerName} />
-			<InputContainer type="tel" label="Telefonnummer" id="phone" bind:value={runnerPhone} />
+			<InputContainer
+				type="text"
+				label="Namn"
+				id="name"
+				disabled={disableAllInput}
+				bind:value={runnerName}
+			/>
+			<InputContainer
+				type="tel"
+				label="Telefonnummer"
+				id="phone"
+				disabled={disableAllInput}
+				bind:value={runnerPhone}
+			/>
 		</Indent>
 
 		<h3>Sponsor</h3>
 		<Indent>
-			<InputContainer type="text" label="Namn" id="sponsorName" bind:value={sponsorName} />
+			<InputContainer
+				type="text"
+				label="Namn"
+				id="sponsorName"
+				disabled={disableAllInput}
+				bind:value={sponsorName}
+			/>
 			<InputContainer
 				type="tel"
 				label="Telefonnummer"
 				id="sponsorPhone"
+				disabled={disableAllInput}
 				bind:value={sponsorPhone}
 			/>
 			<InputContainer
 				type="number"
 				label="Sponsrad summa (kr)"
 				id="sponsorAmount"
+				disabled={disableAllInput}
 				bind:value={sponsorAmount}
 				info="Summa (i kr) som sponsras per varv som löparen springer."
 			/>

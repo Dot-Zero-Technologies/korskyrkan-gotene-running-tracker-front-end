@@ -1,16 +1,17 @@
 <script lang="ts">
-	export let value: string;
-	export let className: string = '';
-	export let error: boolean = false;
+	export let value: string
+	export let className: string = ''
+	export let error: boolean = false
+	export let disabled: boolean = false
 
 	interface $$Props extends Partial<HTMLInputElement> {
-		value: string;
-		className?: string;
-		error: boolean;
+		value: string
+		className?: string
+		error: boolean
 	}
 </script>
 
-<input on:click class={className + (error ? ' error' : '')} bind:value {...$$props} />
+<input on:click class={className + (error ? ' error' : '')} bind:value {...$$props} {disabled} />
 
 <style>
 	input {

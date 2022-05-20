@@ -1,15 +1,16 @@
 <script lang="ts">
-	import Input from './Input.svelte';
-	import InputLabel from './InputLabel.svelte';
-	export let label: string;
-	export let id: string;
-	export let value: string;
-	export let info: string = '';
+	import Input from './Input.svelte'
+	import InputLabel from './InputLabel.svelte'
+	export let label: string
+	export let id: string
+	export let value: string
+	export let info: string = ''
 
 	interface $$Props extends Partial<HTMLInputElement> {
-		label: string;
-		id: string;
-		value: string;
+		label: string
+		id: string
+		value: string
+		disabled: boolean
 	}
 </script>
 
