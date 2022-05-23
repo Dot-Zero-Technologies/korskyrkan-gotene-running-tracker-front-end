@@ -14,12 +14,19 @@
 
 	// Disable all form inputs.
 	let disableAllInput: boolean = false
-	$: console.log(disableAllInput)
+
+	// Error and success messages.
+	let errorMessage: string = ''
+	let successMessage: string = ''
 
 	// Handle submit click.
 	const submitClick = async () => {
 		// Disable all inputs.
 		disableAllInput = true
+
+		// Clear error and success messages.
+		errorMessage = ''
+		successMessage = ''
 
 		// Send registration request.
 		const status = await sendRegistration(
@@ -33,7 +40,7 @@
 		// Check if registration was successful.
 		if (status.status === 200) {
 			// Display success message.
-			console.info('Registration successful!')
+			successMessage = 'Tack för din anmälan! Du kommer få ett SMS med mer information.'
 		}
 
 		// Check if registration was unsuccessful.
@@ -42,7 +49,7 @@
 			disableAllInput = false
 
 			// Display error message.
-			console.error('Registration unsuccessful!\n' + status.statusText)
+			errorMessage = status.statusText
 		}
 	}
 </script>
@@ -53,6 +60,10 @@
 <!-- Main -->
 <div class="container">
 	<main>
+		<h2>Anmälan till lopp</h2>
+		{#if errorMessage}<p class="infoMessage error">{errorMessage}</p>{/if}
+		{#if successMessage}<p class="infoMessage success">{successMessage}</p>{/if}
+
 		<h3>Löpare</h3>
 		<Indent>
 			<InputContainer
@@ -118,5 +129,20 @@
 	main {
 		padding: 1rem;
 		max-width: 20rem;
+	}
+
+	.infoMessage {
+		font-size: 0.9rem;
+		font-weight: 500;
+		margin: 0;
+		padding: 0 0.5rem;
+	}
+
+	.infoMessage.error {
+		color: #f30000;
+	}
+
+	.infoMessage.success {
+		color: #080;
 	}
 </style>
